@@ -48,9 +48,9 @@ class WordPressSite:
 
     def create_tag_if_not_exists(self, tags):
         tmp_tags = self.get_tags()
-        for tag in tags:
-            if tag not in tmp_tags:
+        for tag_name in tags:
+            if tag_name not in tmp_tags:
                 tag = WordPressTerm()
                 tag.taxonomy = 'post_tag'
-                tag.name = tag
+                tag.name = tag_name
                 self.wp.call(NewTerm(tag))
